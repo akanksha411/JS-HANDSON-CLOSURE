@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <h2>Closure</h2>
+      <h3>1. closure qus1</h3>
+      <pre>
+        function counter(){
+            var counter = 0;
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+            return IncreaseCounter;
+        }
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());
+
+        OUTPUT: getting alert with values 1,2,3,4
+      </pre>
+    
+      <h3>2. closure qus2</h3>
+      <pre>
+        let count = 0;
+        (function () {
+        if (count === 0) {
+        let count = 1;
+        console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+        })();
+
+        OUTPUT: 1
+                       0
+      </pre>
+
+       <h3>3. Closure qus3</h3>
+       <pre>
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+        
+        Output: 3 will be printed 3 times in 1sec difference  
+       </pre>
+       <h3>4. Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h3>
+       <pre>
+        function OuterFunction() {
+            let length = 20;
+            function InnerFunction() {
+                let breadth=50;
+                console,console.log(`The area of the rectangle is:->`,length*breadth);
+            }
+            return InnerFunction;
+        }
+        var innerFunc = OuterFunction();
+        innerFunc();
+
+        Output: The area of the rectangle is:-> 1000
+       </pre>
+       <h3>5. Take a variable in outer function and create an inner function to increase the counter every time it is called
+    </h3>
+    <pre>
+        function counter(){
+            var counter = 0;
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+            return IncreaseCounter;
+        }
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());
+    </pre>
+    <h3>6. Closure qus 6: Print Output</h3>
+    <pre>
+        var a = 12;
+        (function () {
+        alert(a);
+        })();
+
+        OUTPUT:getting alert with value 12
+    </pre>
+    <h3>7. Closure Qus 7</h3>
+    <pre>
+        var a = 10;
+        var x = (function () {
+        var a = 12;
+        return function () {
+        alert(a);
+        };
+        })();
+        x();
+
+        Output: getting alert with value 12
+    </pre>
+    <h3>8. Closure Qus 8</h3>
+    <pre>
+        var globalVar = "xyz";
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+            (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            console.log(
+                "outerArg = " + outerArg + "\n" +
+                "innerArg = " + innerArg + "\n" +
+                "outerVar = " + outerVar + "\n" +
+                "innerVar = " + innerVar + "\n" +
+                "globalVar = " + globalVar);
+            })(456);
+        })(123);
+    
+    OUTPUT 
+            outerArg = 123
+            innerArg = 456
+            outerVar = a
+            innerVar = b
+            globalVar = xyz    
+    </pre>
+<script src="./script.js"></script>
+</body>
+</html>
